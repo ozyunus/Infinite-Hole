@@ -246,6 +246,42 @@ These can become future backlog items.
 
 Introduce the first special geometric patterns.
 
+#### Asset Architecture
+
+The project should be structured so that future visual and audio assets can be added without rewriting the core game loop.
+
+Planned asset structure:
+
+```text
+Assets/
+├── Patterns/
+│   ├── FlowerOfLife/
+│   ├── IslamicGeometry/
+│   ├── CelticKnot/
+│   └── ...
+├── Game/
+│   ├── Hole/
+│   └── Objects/
+├── Audio/
+│   ├── Music/
+│   └── SFX/
+└── App/
+    └── AppIcon/
+```
+
+The core game should reference falling-object/pattern assets through a data-driven or centralized asset configuration rather than hard-coding each pattern into the gameplay logic.
+
+Adding a new pattern should ideally require:
+1. Adding its asset(s).
+2. Adding its pattern definition/metadata.
+3. Defining its unlock/level condition.
+4. Connecting its SetGreet introduction.
+
+The core falling-object, collision, scoring, and game-loop code should not need to be rewritten when new patterns are added.
+
+Audio assets are reserved for future music and sound effects. The v1.0 game does not need to implement audio.
+
+
 For each pattern:
 
 -   Pattern asset
