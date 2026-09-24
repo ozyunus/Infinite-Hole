@@ -28,12 +28,17 @@ Last verified: 2026-09-24
 - [x] The default launch placeholder was replaced with branded launch assets.
 - [x] Privacy policy and support documents were prepared in the public repo.
 - [x] Reproducible en-US App Store metadata was prepared under `metadata/`.
+- [x] The en-US subtitle, description, keywords, privacy URL, and support URL
+  were uploaded to App Store Connect.
 - [x] Primary category is `Games`; subcategories are `Casual` and `Action`.
 - [x] Third-party content rights are declared as not used.
 - [x] Copyright is set to `2026 Yunus Oz`.
 - [x] All age-rating content answers are set to none/false.
 - [x] Price is Free and availability is enabled in all territories, including
   future territories.
+- [x] Build `2` is declared as not using non-exempt encryption.
+- [x] Two iPhone 6.5-inch and one iPad Pro 12.9-inch screenshots were validated
+  and uploaded; final files are under `screenshots/app-store/en-US/`.
 
 ## App Store Connect resource IDs
 
@@ -43,27 +48,28 @@ Last verified: 2026-09-24
 - App Info ID: `57960786-e4da-423a-be55-5efc97984db8`
 - en-US version localization ID: `24970528-5969-44e4-8a7d-4f9ecb58a5a7`
 - en-US app-info localization ID: `b1f0fcbc-342b-4a91-87e5-559f2ac1d961`
+- iPhone screenshot set ID: `852ab412-1c4f-45b6-9642-348c9f07d872`
+- iPad screenshot set ID: `0f3133c1-baa4-40bb-a06a-e13eaa977402`
 
 ## Current blockers
 
-The remaining actionable groups are:
+The latest standard validation reports one blocking error, no warnings, and
+one informational item:
 
-- [ ] Upload the prepared English description, keywords, and support URL.
-- [ ] Upload the prepared subtitle and privacy policy URL.
-- [ ] Add App Review contact details.
-- [ ] Upload required App Store screenshots.
-- [ ] Verify App Privacy, agreements, and web-only declarations with deep
-  validation or in App Store Connect.
+- [ ] Add App Review contact details. Planned values: Yunus Oz,
+  `ozyunus@msn.com`; the required phone number is still needed.
+- [ ] Authenticate an ASC web session, publish the no-data-collected App Privacy
+  declaration, and verify agreements and web-only declarations with deep
+  validation. `asc web auth status` currently reports no cached session.
 - [ ] Run final validation and submit for review.
 
 ## Next execution order
 
-1. Publish this repository update so the support/privacy URLs are live.
-2. Upload the prepared English metadata. Public support/privacy URLs are
-   required before this step can be complete.
-3. Add review contact information.
-4. Capture, validate, and upload screenshots for every supported device family.
-5. Run `asc validate --deep`, resolve remaining web-only declarations, and
+1. Run `asc web auth login --apple-id <APPLE_ID>` interactively in a local
+   terminal; do not send the Apple password or 2FA code through chat.
+2. Pull, plan, apply, and publish the no-data-collected App Privacy declaration.
+3. Add review contact information after the phone number is supplied.
+4. Run `asc validate --deep`, resolve remaining web-only declarations, and
    submit version `1.0` for review.
 
 ## ASC maintenance note
