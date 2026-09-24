@@ -20,8 +20,8 @@ Last verified: 2026-09-24
 - [x] Bundle ID and automatic signing are configured in the Xcode project.
 - [x] The App Store Connect app record exists.
 - [x] App Store version `1.0` exists in `PREPARE_FOR_SUBMISSION` state.
-- [x] Build `1.0.0 (2)` with the custom icon was uploaded, processed as
-  `VALID`, and attached to App Store version `1.0`.
+- [x] Build `1.0.0 (3)` is iPhone-only (`UIDeviceFamily = [1]`), includes the
+  custom icon, was processed as `VALID`, and is attached to version `1.0`.
 - [x] Build encryption status is exempt.
 - [x] ASC CLI `5.4.0` is installed and its API credential validates.
 - [x] A custom Infinite Hole app icon was created and selected in Xcode.
@@ -36,20 +36,22 @@ Last verified: 2026-09-24
 - [x] All age-rating content answers are set to none/false.
 - [x] Price is Free and availability is enabled in all territories, including
   future territories.
-- [x] Build `2` is declared as not using non-exempt encryption.
-- [x] Two iPhone 6.5-inch and one iPad Pro 12.9-inch screenshots were validated
-  and uploaded; final files are under `screenshots/app-store/en-US/`.
+- [x] Build `3` is declared as not using non-exempt encryption.
+- [x] Two iPhone 6.5-inch screenshots were validated and uploaded; final files
+  are under `screenshots/app-store/en-US/iphone65/`.
+- [x] iPad support, the iPad screenshot, and the empty iPad screenshot set were
+  removed. The App Store listing is iPhone-only.
 
 ## App Store Connect resource IDs
 
 - Version ID: `afbcbca6-3e1c-4945-8509-c6decbe7b77e`
-- Attached build ID: `62bb520d-488c-43ad-ba9a-279250440c17`
+- Attached build ID: `341d4c2a-cfdf-4604-b435-64353baec7d7`
+- Previous universal build ID: `62bb520d-488c-43ad-ba9a-279250440c17`
 - Previous placeholder-icon build ID: `af3776ff-01be-4f94-8be6-3aa8370ba747`
 - App Info ID: `57960786-e4da-423a-be55-5efc97984db8`
 - en-US version localization ID: `24970528-5969-44e4-8a7d-4f9ecb58a5a7`
 - en-US app-info localization ID: `b1f0fcbc-342b-4a91-87e5-559f2ac1d961`
 - iPhone screenshot set ID: `852ab412-1c4f-45b6-9642-348c9f07d872`
-- iPad screenshot set ID: `0f3133c1-baa4-40bb-a06a-e13eaa977402`
 
 ## Current blockers
 
