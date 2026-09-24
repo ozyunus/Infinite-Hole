@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+## Release status
+
+The current iOS/App Store handoff is tracked in [APP_STORE_RELEASE.md](APP_STORE_RELEASE.md).
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
