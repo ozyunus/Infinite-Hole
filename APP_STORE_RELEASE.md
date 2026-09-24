@@ -19,7 +19,8 @@ Last verified: 2026-09-24
 - [x] The game works correctly on a physical iPhone (confirmed by the owner).
 - [x] Bundle ID and automatic signing are configured in the Xcode project.
 - [x] The App Store Connect app record exists.
-- [x] App Store version `1.0` exists in `PREPARE_FOR_SUBMISSION` state.
+- [x] App Store version `1.0` was submitted and is in
+  `WAITING_FOR_REVIEW` state.
 - [x] Build `1.0.0 (3)` is iPhone-only (`UIDeviceFamily = [1]`), includes the
   custom icon, was processed as `VALID`, and is attached to version `1.0`.
 - [x] Build encryption status is exempt.
@@ -41,6 +42,14 @@ Last verified: 2026-09-24
   are under `screenshots/app-store/en-US/iphone65/`.
 - [x] iPad support, the iPad screenshot, and the empty iPad screenshot set were
   removed. The App Store listing is iPhone-only.
+- [x] App Review contact details and reviewer notes were configured. No demo
+  account is required.
+- [x] App Privacy is published as `DATA_NOT_COLLECTED`; the reproducible answer
+  is stored in `metadata/app-privacy.json`.
+- [x] The regulated medical-device declaration is recorded as false.
+- [x] Deep validation reports zero blocking errors.
+- [x] Version `1.0` was submitted to App Review on 2026-09-24 and is waiting
+  for review.
 
 ## App Store Connect resource IDs
 
@@ -52,27 +61,32 @@ Last verified: 2026-09-24
 - en-US version localization ID: `24970528-5969-44e4-8a7d-4f9ecb58a5a7`
 - en-US app-info localization ID: `b1f0fcbc-342b-4a91-87e5-559f2ac1d961`
 - iPhone screenshot set ID: `852ab412-1c4f-45b6-9642-348c9f07d872`
+- Review submission ID: `dbf44218-b1cd-49bc-89bf-3f3f84c08263`
 
-## Current blockers
+## Current status
 
-The latest standard validation reports one blocking error, no warnings, and
-one informational item:
+There are no release blockers. App Store Connect reports:
 
-- [ ] Add App Review contact details. Planned values: Yunus Oz,
-  `ozyunus@msn.com`; the required phone number is still needed.
-- [ ] Authenticate an ASC web session, publish the no-data-collected App Privacy
-  declaration, and verify agreements and web-only declarations with deep
-  validation. `asc web auth status` currently reports no cached session.
-- [ ] Run final validation and submit for review.
+- App Store version state: `WAITING_FOR_REVIEW`
+- Review submission: in flight
+- Build processing state: `VALID`
+- Blocking issue count: `0`
+- Next action: wait for Apple App Review's decision.
+
+## Remaining account action
+
+Apple's agreements page reports both developer agreements as active. It also
+shows a Digital Services Act notice requiring the Account Holder to declare
+trader or non-trader status for European Union distribution. This is a legal
+account classification, is not currently blocking App Review, and must be
+answered by the account owner in App Store Connect.
 
 ## Next execution order
 
-1. Run `asc web auth login --apple-id <APPLE_ID>` interactively in a local
-   terminal; do not send the Apple password or 2FA code through chat.
-2. Pull, plan, apply, and publish the no-data-collected App Privacy declaration.
-3. Add review contact information after the phone number is supplied.
-4. Run `asc validate --deep`, resolve remaining web-only declarations, and
-   submit version `1.0` for review.
+1. Monitor the review with `asc status --app 6814536082`.
+2. Respond to Apple if the review team asks a question or rejects the build.
+3. Complete the EU trader-status declaration in App Store Connect.
+4. After approval, verify the release state and public App Store listing.
 
 ## ASC maintenance note
 
