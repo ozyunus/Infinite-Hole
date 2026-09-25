@@ -64,6 +64,7 @@ Last verified: 2026-09-25
 - en-US app-info localization ID: `b1f0fcbc-342b-4a91-87e5-559f2ac1d961`
 - iPhone screenshot set ID: `852ab412-1c4f-45b6-9642-348c9f07d872`
 - Review submission ID: `dbf44218-b1cd-49bc-89bf-3f3f84c08263`
+- Resolution Center thread ID: `8a48581a-4f07-3b21-9bc8-b9886ddf7e40`
 
 ## Current status
 
