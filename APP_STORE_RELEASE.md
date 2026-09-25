@@ -3,7 +3,7 @@
 This file is the source of truth for the Infinite Hole iOS release. Read it
 before continuing App Store work and update it after every completed step.
 
-Last verified: 2026-09-24
+Last verified: 2026-09-25
 
 ## App identifiers
 
@@ -19,8 +19,7 @@ Last verified: 2026-09-24
 - [x] The game works correctly on a physical iPhone (confirmed by the owner).
 - [x] Bundle ID and automatic signing are configured in the Xcode project.
 - [x] The App Store Connect app record exists.
-- [x] App Store version `1.0` was submitted and is in
-  `WAITING_FOR_REVIEW` state.
+- [x] App Store version `1.0` was submitted on 2026-09-24.
 - [x] Build `1.0.0 (3)` is iPhone-only (`UIDeviceFamily = [1]`), includes the
   custom icon, was processed as `VALID`, and is attached to version `1.0`.
 - [x] Build encryption status is exempt.
@@ -48,8 +47,11 @@ Last verified: 2026-09-24
   is stored in `metadata/app-privacy.json`.
 - [x] The regulated medical-device declaration is recorded as false.
 - [x] Deep validation reports zero blocking errors.
-- [x] Version `1.0` was submitted to App Review on 2026-09-24 and is waiting
-  for review.
+- [x] Version `1.0` was submitted to App Review on 2026-09-24.
+- [x] Apple reviewed the submission and requested additional information under
+  Guideline 2.1 on 2026-09-25 because the developer account has limited App
+  Review history. Apple did not report a crash, functional defect, or metadata
+  violation.
 
 ## App Store Connect resource IDs
 
@@ -65,13 +67,27 @@ Last verified: 2026-09-24
 
 ## Current status
 
-There are no release blockers. App Store Connect reports:
+App Store Connect currently reports:
 
-- App Store version state: `WAITING_FOR_REVIEW`
-- Review submission: in flight
+- App Store version state: `REJECTED`
+- Review state: `UNRESOLVED_ISSUES`
 - Build processing state: `VALID`
-- Blocking issue count: `0`
-- Next action: wait for Apple App Review's decision.
+- Review issue count: `1`
+- Next action: provide the requested screen recording and app information,
+  update App Review Notes, reply in App Store Connect, and resubmit.
+
+## Guideline 2.1 response requirements
+
+- [ ] Record the latest build on a physical iPhone running the latest iOS. The
+  recording must start with launching the app and show the normal flow: tap
+  `PLAY`, drag the hole, catch several fitting shapes, reach a later level, tap
+  `EXIT`, and return to the title screen.
+- [ ] Attach the recording to App Review Information.
+- [ ] Add the requested purpose, audience, access, services, regional behavior,
+  and regulated-content answers to App Review Notes. The prepared response is
+  in `metadata/app-review/guideline-2.1-response.md`.
+- [ ] Reply to Apple's Resolution Center message with the same information.
+- [ ] Resubmit version `1.0` for review. A new build is not currently required.
 
 ## Remaining account action
 
@@ -83,10 +99,13 @@ answered by the account owner in App Store Connect.
 
 ## Next execution order
 
-1. Monitor the review with `asc status --app 6814536082`.
-2. Respond to Apple if the review team asks a question or rejects the build.
-3. Complete the EU trader-status declaration in App Store Connect.
-4. After approval, verify the release state and public App Store listing.
+1. Capture the required physical-device screen recording and place the video
+   file in the workspace.
+2. Upload the recording, update App Review Notes, and reply to Apple.
+3. Resubmit version `1.0`, then monitor it with
+   `asc status --app 6814536082`.
+4. Complete the EU trader-status declaration in App Store Connect.
+5. After approval, verify the release state and public App Store listing.
 
 ## ASC maintenance note
 
